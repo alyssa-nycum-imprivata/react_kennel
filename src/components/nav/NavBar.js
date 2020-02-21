@@ -22,9 +22,21 @@ const NavBar = () => {
               Animals
             </Link>
           </li>
-          <li>Locations</li>
-          <li>Employees</li>
-          <li>Owners</li>
+          <li>
+              <Link className="nav-link" to="/locations">
+                  Locations
+              </Link>
+          </li>
+          <li>
+              <Link className="nav-link" to="/employees">
+                  Employees
+              </Link>
+          </li>
+          <li>
+              <Link className="nav-link" to="/owners">
+                  Owners
+              </Link>
+          </li>
         </ul>
       </nav>
     </header>
