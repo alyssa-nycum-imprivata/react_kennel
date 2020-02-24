@@ -5,7 +5,7 @@ const EmployeeCard = () => {
     <div className="card">
       <div className="card-content">
         <picture>
-          <img src={require("./profile-icon.png")} alt="Employee Picture" />
+          <img src={require("./profile-icon.png")} alt="Employee" />
         </picture>
         <h3>
           Name: <span className="card-employeename">Matt Berringer</span>
