@@ -16,9 +16,11 @@ const LocationList = () => {
     getLocations();
   }, []);
 
-  return (
+  return(
     <div className="container-cards">
-      {locations.map(location => <LocationCard />)}
+      {locations.map(location =>
+        <LocationCard key={location.id} location={location} />
+      )}
     </div>
   );
 };

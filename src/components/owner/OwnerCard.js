@@ -1,6 +1,6 @@
 import React from "react";
 
-const OwnerCard = () => {
+const OwnerCard = (props) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -8,8 +8,9 @@ const OwnerCard = () => {
           <img src={require("./profile-icon.png")} alt="Owner" />
         </picture>
         <h3>
-          Name: <span className="card-ownername">Alyssa Nycum</span>
+          Name: <span className="card-ownername">{props.owner.name}</span>
         </h3>
+        <p>Phone Number: {props.owner.phoneNumber}</p>
       </div>
     </div>
   );
