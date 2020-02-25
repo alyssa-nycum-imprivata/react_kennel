@@ -1,64 +1,64 @@
 {
-    "animals": [
-        { 
-            "id": 1, 
-            "name": "Doodles", 
-            "breed": "Poodle"
-        },
-        { 
-            "id": 2, 
-            "name": "Decker", 
-            "breed": "German Shepherd" 
-        },
-        { 
-            "id": 3, 
-            "name": "Esme", 
-            "breed": "Pitbull" 
-        }
-    ],
-    "locations": [
-        {
-            "id": 1,
-            "name": "Germantown"
-        },
-        {
-            "id": 2,
-            "name": "Sylvan Park"
-        },
-        {
-            "id": 3,
-            "name": "East Nashville"
-        }
-    ],
-    "employees": [
-        {
-            "id": 1,
-            "name": "Marcus Whitt"
-        },
-        {
-            "id": 2,
-            "name": "Brittany O'Donnell"
-        },
-        {
-            "id": 3,
-            "name": "Jen Roberts"
-        }
-    ],
-    "owners": [
-        {
-            "id": 1,
-            "name": "Brenda Smith",
-            "phoneNumber": "615-478-2332"
-        },
-        {
-            "id": 2,
-            "name": "Mike Jones",
-            "phoneNumber": "615-483-8642"
-        },
-        {
-            "id": 3,
-            "name": "Derek Boyd",
-            "phoneNumber": "615-437-9943"
-        }
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Shepherd"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull"
+    }
+  ],
+  "locations": [
+    {
+      "id": 2,
+      "name": "Sylvan Park"
+    },
+    {
+      "id": 3,
+      "name": "East Nashville"
+    },
+    {
+      "id": 3,
+      "name": "Germantown"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Marcus Whitt"
+    },
+    {
+      "id": 2,
+      "name": "Brittany O'Donnell"
+    },
+    {
+      "id": 2,
+      "name": "Jennifer Roberts"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Brenda Smith",
+      "phoneNumber": "615-478-2332"
+    },
+    {
+      "id": 2,
+      "name": "Mike Jones",
+      "phoneNumber": "615-483-8642"
+    },
+    {
+      "id": 2,
+      "name": "Derek Boyd",
+      "phoneNumber": "615-449-2047"
+    }
+  ]
 }
