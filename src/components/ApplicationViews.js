@@ -24,7 +24,6 @@ const ApplicationViews = () => {
       <Route
         path="/animals/:animalId(\d+)"
         render={props => {
-          // Pass the animalId to the AnimalDetailComponent
           return (
             <AnimalDetail
               animalId={parseInt(props.match.params.animalId)}
@@ -37,7 +36,9 @@ const ApplicationViews = () => {
         return <LocationList />
       }} />
       <Route path="/locations/:locationId(\d+)" render={(props) => {
-        return <LocationDetail locationId={parseInt(props.match.params.locationId)} />
+        return <LocationDetail locationId={parseInt(props.match.params.locationId)} 
+        {...props}
+        />
       }} />
       <Route
         path="/employees"
