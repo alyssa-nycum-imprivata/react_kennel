@@ -18,11 +18,11 @@
   ],
   "locations": [
     {
-      "id": 2,
+      "id": 1,
       "name": "Sylvan Park"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "East Nashville"
     },
     {
@@ -40,7 +40,7 @@
       "name": "Brittany O'Donnell"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Jennifer Roberts"
     }
   ],
@@ -56,7 +56,7 @@
       "phoneNumber": "615-483-8642"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Derek Boyd",
       "phoneNumber": "615-449-2047"
     }
