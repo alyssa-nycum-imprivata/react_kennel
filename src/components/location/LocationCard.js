@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 const LocationCard = (props) => {
@@ -10,6 +11,9 @@ const LocationCard = (props) => {
         <h3>
           Location: <span className="card-locationname">{props.location.name}</span>
         </h3>
+        <Link to={`/locations/${props.location.id}`}>
+          <button>Details</button>
+        </Link>
         <button type="button" onClick={() => props.deleteLocation(props.location.id)}>Close</button>
       </div>
     </div>
