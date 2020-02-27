@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnimalManager from "../../modules/AnimalManager";
 import "./AnimalDetail.css";
+import { firstLetterCase } from '../../modules/helpers';
 
 const AnimalDetail = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "" });
@@ -32,9 +33,9 @@ const AnimalDetail = props => {
           <img src={require("./dog.svg")} alt="My Dog" />
         </picture>
         <h3>
-          Name: <span style={{ color: "darkslategrey" }}>{animal.name}</span>
+          Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(animal.name)}</span>
         </h3>
-        <p>Breed: {animal.breed}</p>
+        <p>Breed: {firstLetterCase(animal.breed)}</p>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>

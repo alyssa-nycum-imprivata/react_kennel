@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterCase } from '../../modules/helpers';
 
 const EmployeeCard = (props) => {
   return (
@@ -8,7 +9,7 @@ const EmployeeCard = (props) => {
           <img src={require("./profile-icon.png")} alt="Employee" />
         </picture>
         <h3>
-          Name: <span className="card-employeename">{props.employee.name}</span>
+          Name: <span className="card-employeename">{firstLetterCase(props.employee.name)}</span>
         </h3>
         <button type="button" onClick={() => props.deleteEmployee(props.employee.id)}>Fire</button>
       </div>

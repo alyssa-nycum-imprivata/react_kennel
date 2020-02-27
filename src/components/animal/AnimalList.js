@@ -6,7 +6,7 @@ const AnimalList = (props) => {
   const [animals, setAnimals] = useState([]);
 
   const getAnimals = () => {
-  
+
     return AnimalManager.getAll().then(animalsFromAPI => {
       setAnimals(animalsFromAPI)
     });
@@ -23,20 +23,20 @@ const AnimalList = (props) => {
 
   return (
     <>
-    <section className="section-content">
-      <button type="button"
-      className="btn"
-      onClick={() => {props.history.push("/animals/new")}}>
-      Admit Animal
+      <section className="section-content">
+        <button type="button"
+          className="btn"
+          onClick={() => { props.history.push("/animals/new") }}>
+          Admit Animal
       </button>
-    </section>
-    <div className="container-cards">
-      {animals.map(animal =>
-        <AnimalCard
-          key={animal.id}
-          animal={animal}
-          deleteAnimal={deleteAnimal} />)}
-    </div>
+      </section>
+      <div className="container-cards">
+        {animals.map(animal =>
+          <AnimalCard
+            key={animal.id}
+            animal={animal}
+            deleteAnimal={deleteAnimal} />)}
+      </div>
     </>
   );
 };
