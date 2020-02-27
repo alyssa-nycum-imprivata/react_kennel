@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LocationManager from '../../modules/LocationManager';
+import { firstLetterCase } from '../../modules/helpers';
 
 const LocationDetail = props => {
     const [location, setLocation] = useState({ name: "" });
@@ -28,7 +29,7 @@ const LocationDetail = props => {
                 <picture>
                     <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
                 </picture>
-                <h3>Location: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
+                <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
                 <button type="button" disabled={isLoading} onClick={handleDelete}>
                     Close
                 </button>
