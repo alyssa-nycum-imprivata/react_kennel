@@ -1,5 +1,6 @@
 import React from "react";
 import { firstLetterCase } from '../../modules/helpers';
+import { Link } from "react-router-dom";
 
 const OwnerCard = (props) => {
   return (
@@ -12,6 +13,13 @@ const OwnerCard = (props) => {
           Name: <span className="card-ownername">{firstLetterCase(props.owner.name)}</span>
         </h3>
         <p>Phone Number: {firstLetterCase(props.owner.phoneNumber)}</p>
+        <Link to={`/owners/${props.owner.id}`}>
+          <button>Details</button>
+        </Link>
+        <button type="button"
+          onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}>
+          Edit
+        </button>
         <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>Remove</button>
       </div>
     </div>
