@@ -4,7 +4,7 @@ import "./AnimalDetail.css";
 import { firstLetterCase } from '../../modules/helpers';
 
 const AnimalDetail = props => {
-    const [animal, setAnimal] = useState({ name: "", breed: "" });
+    const [animal, setAnimal] = useState({ name: "", breed: "", gender: "", age: "", weight: "", petOwner: "" });
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
@@ -18,7 +18,11 @@ const AnimalDetail = props => {
         AnimalManager.get(props.animalId).then(animal => {
             setAnimal({
                 name: animal.name,
-                breed: animal.breed
+                breed: animal.breed,
+                gender: animal.gender,
+                age: animal.age,
+                weight: animal.weight,
+                petOwner: animal.petOwner
             });
             setIsLoading(false);
         });
@@ -41,6 +45,14 @@ const AnimalDetail = props => {
                         Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(animal.name)}</span>
                     </h3>
                     <p>Breed: {firstLetterCase(animal.breed)}</p>
+                    <p>Gender: {firstLetterCase(animal.gender)}</p>
+                    <p>Age: {animal.age}</p>
+                    <p>Weight: {animal.weight} pounds</p>
+                    <p>Owner: {firstLetterCase(animal.petOwner)}</p>
+                    <button type="button"
+                        onClick={() => props.history.push(`/animals/${props.animalId}/edit`)}>
+                        Edit
+                    </button>
                     <button type="button" disabled={isLoading} onClick={handleDelete}>
                         Discharge
             </button>

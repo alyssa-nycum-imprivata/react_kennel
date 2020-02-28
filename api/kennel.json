@@ -3,17 +3,38 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "gender": "Female",
+      "age": "9",
+      "weight": "25",
+      "petOwner": "Brenda Smith"
     },
     {
       "id": 2,
       "name": "Decker",
-      "breed": "Husky"
+      "breed": "Husky",
+      "gender": "Male",
+      "age": "2",
+      "weight": "40",
+      "petOwner": "Kevin Jones"
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "gender": "Female",
+      "age": "5",
+      "weight": "55",
+      "petOwner": "Derek Boyd"
+    },
+    {
+      "id": 4,
+      "name": "Buffy",
+      "breed": "Golden Retriever",
+      "gender": "Female",
+      "age": "14",
+      "weight": "50",
+      "petOwner": "Alyssa Nycum"
     }
   ],
   "locations": [
