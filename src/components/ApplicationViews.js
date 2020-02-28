@@ -83,9 +83,11 @@ const ApplicationViews = () => {
       <Route
         path="/locations/:locationId(\d+)" render={(props) => {
           if (isAuthenticated()) {
-            return <LocationDetail locationId={parseInt(props.match.params.locationId)}
-            {...props}
-          />
+            return (
+              <LocationDetail locationId={parseInt(props.match.params.locationId)}
+                {...props}
+              />
+            )
           } else {
             return <Redirect to="/login" />
           }

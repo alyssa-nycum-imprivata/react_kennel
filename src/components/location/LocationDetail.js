@@ -9,9 +9,9 @@ const LocationDetail = props => {
     const handleDelete = () => {
         setIsLoading(true);
         LocationManager.delete(props.locationId).then(() =>
-          props.history.push("/locations")
+            props.history.push("/locations")
         );
-      };
+    };
 
     useEffect(() => {
         LocationManager.get(props.locationId)
@@ -23,19 +23,27 @@ const LocationDetail = props => {
             });
     }, [props.locationId]);
 
-    return (
-        <div className="card">
-            <div className="card-content">
-                <picture>
-                    <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
-                </picture>
-                <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
-                <button type="button" disabled={isLoading} onClick={handleDelete}>
-                    Close
-                </button>
+    if (location.name === undefined) {
+        return (
+            <div className="notFound">
+                <h2>The location you are searching for does not exist</h2>
             </div>
-        </div>
-    );
+        )
+    } else {
+        return (
+            <div className="card">
+                <div className="card-content">
+                    <picture>
+                        <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
+                    </picture>
+                    <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
+                    <button type="button" disabled={isLoading} onClick={handleDelete}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default LocationDetail;
