@@ -14,6 +14,9 @@ import LocationForm from './location/LocationForm';
 import EmployeeForm from './employee/EmployeeForm';
 import OwnerForm from './owner/OwnerForm';
 import AnimalEditForm from './animal/AnimalEditForm';
+import EmployeeEditForm from './employee/EmployeeEditForm';
+import LocationEditForm from './location/LocationEditForm';
+import OwnerEditForm from './owner/OwnerEditForm';
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -96,6 +99,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={(props) => {
           if (isAuthenticated()) {
@@ -104,6 +108,16 @@ const ApplicationViews = () => {
                 {...props}
               />
             )
+          } else {
+            return <Redirect to="/login" />
+          }
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <LocationEditForm {...props} />
           } else {
             return <Redirect to="/login" />
           }
@@ -131,6 +145,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/employees/:employeeId(\d+)"
         render={(props) => {
           if (isAuthenticated()) {
@@ -139,6 +154,16 @@ const ApplicationViews = () => {
                 {...props}
               />
             )
+          } else {
+            return <Redirect to="/login" />
+          }
+        }}
+      />
+      <Route
+        path="/employees/:employeeId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <EmployeeEditForm {...props} />
           } else {
             return <Redirect to="/login" />
           }
@@ -166,6 +191,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/owners/:ownerId(\d+)"
         render={(props) => {
           if (isAuthenticated()) {
@@ -174,6 +200,16 @@ const ApplicationViews = () => {
                 {...props}
               />
             )
+          } else {
+            return <Redirect to="/login" />
+          }
+        }}
+      />
+      <Route
+        path="/owners/:ownerId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <OwnerEditForm {...props} />
           } else {
             return <Redirect to="/login" />
           }
