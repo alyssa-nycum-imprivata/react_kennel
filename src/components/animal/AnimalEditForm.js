@@ -3,7 +3,7 @@ import AnimalManager from "../../modules/AnimalManager"
 import "./AnimalForm.css"
 
 const AnimalEditForm = props => {
-    const [animal, setAnimal] = useState({ name: "", breed: "" });
+    const [animal, setAnimal] = useState({ name: "", breed: "", gender: "", age: "", weight: "", petOwner: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -68,7 +68,6 @@ const AnimalEditForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="gender"
-                            placeholder="Male or Female"
                             value={animal.gender}
                         />
                         <label htmlFor="gender">Gender</label>
@@ -78,7 +77,6 @@ const AnimalEditForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="age"
-                            placeholder="Age"
                             value={animal.age}
                         />
                         <label htmlFor="age">Age</label>
@@ -88,7 +86,6 @@ const AnimalEditForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="weight"
-                            placeholder="Weight in pounds"
                             value={animal.weight}
                         />
                         <label htmlFor="weight">Weight</label>
@@ -98,7 +95,6 @@ const AnimalEditForm = props => {
                             required
                             onChange={handleFieldChange}
                             id="petOwner"
-                            placeholder="Owner"
                             value={animal.petOwner}
                         />
                         <label htmlFor="petOwner">Owner</label>

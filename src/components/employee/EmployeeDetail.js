@@ -3,7 +3,7 @@ import EmployeeManager from '../../modules/EmployeeManager';
 import { firstLetterCase } from '../../modules/helpers';
 
 const EmployeeDetail = props => {
-    const [employee, setEmployee] = useState({ name: "" });
+    const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
@@ -18,6 +18,9 @@ const EmployeeDetail = props => {
             .then(employee => {
                 setEmployee({
                     name: employee.name,
+                    phoneNumber: employee.phoneNumber,
+                    jobTitle: employee.jobTitle,
+                    hireDate: employee.hireDate
                 });
                 setIsLoading(false);
             });
@@ -37,6 +40,13 @@ const EmployeeDetail = props => {
                         <img src={require("./profile-icon.png")} alt="Employee" />
                     </picture>
                     <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(employee.name)}</span></h3>
+                    <p>Phone Number: {employee.phoneNumber}</p>
+                    <p>Job Title: {firstLetterCase(employee.jobTitle)}</p>
+                    <p>Hire Date: {employee.hireDate}</p>
+                    <button type="button"
+                        onClick={() => props.history.push(`/employees/${props.employeeId}/edit`)}>
+                        Edit
+                    </button>
                     <button type="button" disabled={isLoading} onClick={handleDelete}>
                         Fire
                     </button>

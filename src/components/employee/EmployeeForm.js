@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import EmployeeManager from '../../modules/EmployeeManager';
 
 const EmployeeForm = props => {
-  const [employee, setEmployee] = useState({ name: "" });
+  const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -35,6 +35,34 @@ const EmployeeForm = props => {
               placeholder="Employee name"
             />
             <label htmlFor="name">Name</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="phoneNumber"
+              placeholder="000-000-0000"
+            />
+            <label htmlFor="phoneNumber">Phone Number:</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="jobTitle"
+              placeholder="Job Title"
+            />
+            <label htmlFor="jobTitle">Job Title:</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="hireDate"
+              placeholder="MM/DD/YY"
+            />
+            <label htmlFor="hireDate">Hire Date:</label>
+
           </div>
           <div className="alignRight">
             <button

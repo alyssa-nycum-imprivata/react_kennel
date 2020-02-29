@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import EmployeeManager from "../../modules/EmployeeManager"
 
 const EmployeeEditForm = props => {
-  const [employee, setEmployee] = useState({ name: "" });
+  const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -18,6 +18,9 @@ const EmployeeEditForm = props => {
     const editedEmployee = {
       id: props.match.params.employeeId,
       name: employee.name,
+      phoneNumber: employee.phoneNumber,
+      jobTitle: employee.jobTitle,
+      hireDate: employee.hireDate
     };
 
     EmployeeManager.update(editedEmployee)
@@ -46,6 +49,34 @@ const EmployeeEditForm = props => {
               value={employee.name}
             />
             <label htmlFor="name">Employee name</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="phoneNumber"
+              value={employee.phoneNumber}
+            />
+            <label htmlFor="phoneNumber">Phone Number:</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="jobTitle"
+              value={employee.jobTitle}
+            />
+            <label htmlFor="jobTitle">Job Title:</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="hireDate"
+              value={employee.hireDate}
+            />
+            <label htmlFor="hireDate">Hire Date:</label>
+
           </div>
           <div className="alignRight">
             <button
