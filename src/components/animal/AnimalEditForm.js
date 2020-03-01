@@ -14,20 +14,24 @@ const AnimalEditForm = props => {
 
     const updateExistingAnimal = evt => {
         evt.preventDefault()
-        setIsLoading(true);
+        if (animal.name === "" || animal.breed === "" || animal.gender === "" || animal.age === "" || animal.weight === "" || animal.petOwner === "") {
+            window.alert("Please fill out all fields");
+        } else {
+            setIsLoading(true);
 
-        const editedAnimal = {
-            id: props.match.params.animalId,
-            name: animal.name,
-            breed: animal.breed,
-            gender: animal.gender,
-            age: animal.age,
-            weight: animal.weight,
-            petOwner: animal.petOwner
-        };
-
-        AnimalManager.update(editedAnimal)
-            .then(() => props.history.push("/animals"))
+            const editedAnimal = {
+                id: props.match.params.animalId,
+                name: animal.name,
+                breed: animal.breed,
+                gender: animal.gender,
+                age: animal.age,
+                weight: animal.weight,
+                petOwner: animal.petOwner
+            };
+    
+            AnimalManager.update(editedAnimal)
+                .then(() => props.history.push("/animals"))
+        }
     }
 
     useEffect(() => {

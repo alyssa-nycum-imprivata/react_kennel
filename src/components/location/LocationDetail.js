@@ -3,7 +3,7 @@ import LocationManager from '../../modules/LocationManager';
 import { firstLetterCase } from '../../modules/helpers';
 
 const LocationDetail = props => {
-    const [location, setLocation] = useState({ name: "" });
+    const [location, setLocation] = useState({ name: "", phoneNumber: "", address: "", hours: "" });
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
@@ -18,6 +18,9 @@ const LocationDetail = props => {
             .then(location => {
                 setLocation({
                     name: location.name,
+                    phoneNumber: location.phoneNumber,
+                    address: location.address,
+                    hours: location.hours
                 });
                 setIsLoading(false);
             });
@@ -37,6 +40,13 @@ const LocationDetail = props => {
                         <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
                     </picture>
                     <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
+                    <p>Phone Number: {location.phoneNumber}</p>
+                    <p>Address: {location.address}</p>
+                    <p>Hours: {location.hours}</p>
+                    <button type="button"
+                        onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
+                        Edit
+                    </button>
                     <button type="button" disabled={isLoading} onClick={handleDelete}>
                         Close
                     </button>

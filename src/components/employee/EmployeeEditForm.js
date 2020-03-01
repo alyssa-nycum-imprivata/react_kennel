@@ -13,18 +13,22 @@ const EmployeeEditForm = props => {
 
   const updateExistingEmployee = evt => {
     evt.preventDefault()
-    setIsLoading(true);
+    if (employee.name === "" || employee.phoneNumber === "" || employee.jobTitle === "" || employee.hireDate === "") {
+        window.alert("Please fill out all fields"); 
+    } else {
+        setIsLoading(true);
 
-    const editedEmployee = {
-      id: props.match.params.employeeId,
-      name: employee.name,
-      phoneNumber: employee.phoneNumber,
-      jobTitle: employee.jobTitle,
-      hireDate: employee.hireDate
-    };
-
-    EmployeeManager.update(editedEmployee)
-      .then(() => props.history.push("/employees"))
+        const editedEmployee = {
+          id: props.match.params.employeeId,
+          name: employee.name,
+          phoneNumber: employee.phoneNumber,
+          jobTitle: employee.jobTitle,
+          hireDate: employee.hireDate
+        };
+    
+        EmployeeManager.update(editedEmployee)
+          .then(() => props.history.push("/employees"))
+    }
   }
 
   useEffect(() => {
@@ -48,7 +52,7 @@ const EmployeeEditForm = props => {
               id="name"
               value={employee.name}
             />
-            <label htmlFor="name">Employee name</label>
+            <label htmlFor="name">Employee Name</label>
 
             <input
               type="text"
@@ -57,7 +61,7 @@ const EmployeeEditForm = props => {
               id="phoneNumber"
               value={employee.phoneNumber}
             />
-            <label htmlFor="phoneNumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
 
             <input
               type="text"
@@ -66,7 +70,7 @@ const EmployeeEditForm = props => {
               id="jobTitle"
               value={employee.jobTitle}
             />
-            <label htmlFor="jobTitle">Job Title:</label>
+            <label htmlFor="jobTitle">Job Title</label>
 
             <input
               type="text"
@@ -75,7 +79,7 @@ const EmployeeEditForm = props => {
               id="hireDate"
               value={employee.hireDate}
             />
-            <label htmlFor="hireDate">Hire Date:</label>
+            <label htmlFor="hireDate">Hire Date</label>
 
           </div>
           <div className="alignRight">

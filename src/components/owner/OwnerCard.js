@@ -12,7 +12,7 @@ const OwnerCard = (props) => {
         <h3>
           Name: <span className="card-ownername">{firstLetterCase(props.owner.name)}</span>
         </h3>
-        <p>Phone Number: {firstLetterCase(props.owner.phoneNumber)}</p>
+        <p>Pet's Name: {firstLetterCase(props.owner.petName)}</p>
         <Link to={`/owners/${props.owner.id}`}>
           <button>Details</button>
         </Link>

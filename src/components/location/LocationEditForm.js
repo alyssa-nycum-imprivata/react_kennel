@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import LocationManager from "../../modules/LocationManager"
 
 const LocationEditForm = props => {
-  const [location, setLocation] = useState({ name: "" });
+  const [location, setLocation] = useState({ name: "", phoneNumber: "", address: "", hours: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -13,15 +13,22 @@ const LocationEditForm = props => {
 
   const updateExistingLocation = evt => {
     evt.preventDefault()
-    setIsLoading(true);
+    if (location.name === "" || location.phoneNumber === "" || location.address === "" || location.hours === "") {
+        window.alert("Please fill out all fields");
+    } else {
+        setIsLoading(true);
 
-    const editedLocation = {
-      id: props.match.params.locationId,
-      name: location.name,
-    };
-
-    LocationManager.update(editedLocation)
-      .then(() => props.history.push("/locations"))
+        const editedLocation = {
+          id: props.match.params.locationId,
+          name: location.name,
+          phoneNumber: location.phoneNumber,
+          address: location.address,
+          hours: location.hours
+        };
+    
+        LocationManager.update(editedLocation)
+          .then(() => props.history.push("/locations"))
+    }
   }
 
   useEffect(() => {
@@ -45,7 +52,35 @@ const LocationEditForm = props => {
               id="name"
               value={location.name}
             />
-            <label htmlFor="name">Location name</label>
+            <label htmlFor="name">Location Name</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="phoneNumber"
+              value={location.phoneNumber}
+            />
+            <label htmlFor="phoneNumber">Phone Number</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="address"
+              value={location.address}
+            />
+            <label htmlFor="address">Address</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="hours"
+              value={location.hours}
+            />
+            <label htmlFor="hours">Hours</label>
+
           </div>
           <div className="alignRight">
             <button

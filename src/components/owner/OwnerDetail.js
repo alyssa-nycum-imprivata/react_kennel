@@ -3,7 +3,7 @@ import OwnerManager from "../../modules/OwnerManager";
 import { firstLetterCase } from '../../modules/helpers';
 
 const OwnerDetail = props => {
-    const [owner, setOwner] = useState({ name: "", phoneNumber: "" });
+    const [owner, setOwner] = useState({ name: "", phoneNumber: "", email: "", petName: "" });
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
@@ -17,7 +17,9 @@ const OwnerDetail = props => {
         OwnerManager.get(props.ownerId).then(owner => {
             setOwner({
                 name: owner.name,
-                phoneNumber: owner.phoneNumber
+                phoneNumber: owner.phoneNumber,
+                email: owner.email,
+                petName: owner.petName
             });
             setIsLoading(false);
         });
@@ -34,12 +36,18 @@ const OwnerDetail = props => {
             <div className="card">
                 <div className="card-content">
                     <picture>
-                    <img src={require("./profile-icon.png")} alt="Owner" />
+                        <img src={require("./profile-icon.png")} alt="Owner" />
                     </picture>
                     <h3>
                         Name: <span style={{ color: "darkslategrey" }}>{firstLetterCase(owner.name)}</span>
                     </h3>
-                    <p>Breed: {firstLetterCase(owner.phoneNumber)}</p>
+                    <p>Phone Number: {owner.phoneNumber}</p>
+                    <p>Email: {owner.email}</p>
+                    <p>Pet's Name: {firstLetterCase(owner.petName)}</p>
+                    <button type="button"
+                        onClick={() => props.history.push(`/owners/${props.ownerId}/edit`)}>
+                        Edit
+                    </button>
                     <button type="button" disabled={isLoading} onClick={handleDelete}>
                         Remove
             </button>

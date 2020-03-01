@@ -40,15 +40,31 @@
   "locations": [
     {
       "id": 1,
-      "name": "Sylvan Park"
+      "name": "Sylvan Park",
+      "phoneNumber": "615-832-3568",
+      "address": "353 Murphy Road",
+      "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday"
     },
     {
       "id": 2,
-      "name": "East Nashville"
+      "name": "East Nashville",
+      "phoneNumber": "615-395-4092",
+      "address": "3983 Woodland Street",
+      "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday"
     },
     {
       "id": 3,
-      "name": "Germantown"
+      "name": "Germantown",
+      "phoneNumber": "615-593-3958",
+      "address": "207 5th Ave North",
+      "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday"
+    },
+    {
+      "name": "12 South",
+      "phoneNumber": "615-643-7452",
+      "address": "6820 12th Ave South",
+      "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday",
+      "id": 4
     }
   ],
   "employees": [
@@ -85,17 +101,30 @@
     {
       "id": 1,
       "name": "Brenda Smith",
-      "phoneNumber": "615-478-2332"
+      "phoneNumber": "615-478-2332",
+      "email": "brenda.smith@gmail.com",
+      "petName": "Doodles"
     },
     {
       "id": 2,
       "name": "Kevin Jones",
-      "phoneNumber": "615-483-8642"
+      "phoneNumber": "615-483-8642",
+      "email": "kevin.jones@gmail.com",
+      "petName": "Decker"
     },
     {
       "id": 3,
       "name": "Derek Boyd",
-      "phoneNumber": "615-449-2047"
+      "phoneNumber": "615-449-2047",
+      "email": "derek.boyd@gmail.com",
+      "petName": "Esme"
+    },
+    {
+      "name": "Alyssa Nycum",
+      "phoneNumber": "615-258-5743",
+      "email": "alyssa.nycum@gmail.com",
+      "petName": "Buffy",
+      "id": 4
     }
   ]
 }
