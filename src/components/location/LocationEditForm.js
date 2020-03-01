@@ -27,7 +27,7 @@ const LocationEditForm = props => {
         };
     
         LocationManager.update(editedLocation)
-          .then(() => props.history.push("/locations"))
+          .then(() => props.history.push(`/locations/${location.id}`))
     }
   }
 

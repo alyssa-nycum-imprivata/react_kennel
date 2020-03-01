@@ -27,7 +27,7 @@ const OwnerEditForm = props => {
         };
     
         OwnerManager.update(editedOwner)
-          .then(() => props.history.push("/owners"))
+          .then(() => props.history.push(`/owners/${owner.id}`))
     }
   }
 

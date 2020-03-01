@@ -30,7 +30,7 @@ const AnimalEditForm = props => {
             };
     
             AnimalManager.update(editedAnimal)
-                .then(() => props.history.push("/animals"))
+                .then(() => props.history.push(`/animals/${animal.id}`))
         }
     }
 

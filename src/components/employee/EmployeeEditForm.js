@@ -27,7 +27,7 @@ const EmployeeEditForm = props => {
         };
     
         EmployeeManager.update(editedEmployee)
-          .then(() => props.history.push("/employees"))
+          .then(() => props.history.push(`/employees/${employee.id}`))
     }
   }
 
