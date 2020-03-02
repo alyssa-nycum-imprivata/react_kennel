@@ -8,10 +8,12 @@ const AnimalDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
-        setIsLoading(true);
-        AnimalManager.delete(props.animalId).then(() =>
-            props.history.push("/animals")
-        );
+        if(window.confirm("Are you sure you want to discharge this animal?")) {
+            setIsLoading(true);
+            AnimalManager.delete(props.animalId).then(() =>
+                props.history.push("/animals")
+            );
+        }
     };
 
     useEffect(() => {

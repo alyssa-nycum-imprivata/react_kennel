@@ -15,11 +15,13 @@ const Home = () => {
 
   return (
     <>
+    <div className="spotlight">
       <h1>Animal Spotlight</h1>
-      <button onClick={refreshSpotlightAnimal}>Reload &#x27f3;</button>
+      <button className="reload" onClick={refreshSpotlightAnimal}>Reload &#x27f3;</button>
       {
         spotlightId && <AnimalSpotlight animalId={spotlightId} />
       }
+      </div>
     </>
   );
 };

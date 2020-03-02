@@ -13,3 +13,14 @@
   .animal-spotlight p {
     color: black;
   }
+
+  .reload {
+      margin-bottom: 10px;
+      width: 15%
+  }
+
+  .spotlight {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }

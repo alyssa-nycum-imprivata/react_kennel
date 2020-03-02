@@ -21,7 +21,7 @@ const AnimalCard = props => {
           onClick={() => props.history.push(`/animals/${props.animal.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => props.deleteAnimal(props.animal.id)}>Discharge</button>
+          <button type="button" onClick={() => { if (window.confirm("Are you sure you want to discharge this animal?"))props.deleteAnimal(props.animal.id)}}>Discharge</button>
       </div>
     </div>
   );

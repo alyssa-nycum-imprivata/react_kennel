@@ -7,10 +7,12 @@ const LocationDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
-        setIsLoading(true);
-        LocationManager.delete(props.locationId).then(() =>
-            props.history.push("/locations")
-        );
+        if (window.confirm("Are you sure you want to close this location?")) {
+            setIsLoading(true);
+            LocationManager.delete(props.locationId).then(() =>
+                props.history.push("/locations")
+            );
+        }
     };
 
     useEffect(() => {

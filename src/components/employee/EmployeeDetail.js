@@ -7,10 +7,12 @@ const EmployeeDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
-        setIsLoading(true);
-        EmployeeManager.delete(props.employeeId).then(() =>
-            props.history.push("/employees")
-        );
+        if (window.confirm("Are you sure you want to fire this employee?")) {
+            setIsLoading(true);
+            EmployeeManager.delete(props.employeeId).then(() =>
+                props.history.push("/employees")
+            );
+        }
     };
 
     useEffect(() => {

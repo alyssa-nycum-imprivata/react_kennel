@@ -20,7 +20,7 @@ const LocationCard = (props) => {
           onClick={() => props.history.push(`/locations/${props.kennelLocation.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => props.deleteLocation(props.kennelLocation.id)}>Close</button>
+        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to close this location?"))props.deleteLocation(props.kennelLocation.id)}}>Close</button>
       </div>
     </div>
   );

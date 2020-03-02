@@ -76,24 +76,24 @@
       "hireDate": "09/24/19"
     },
     {
-      "id": 2,
-      "name": "Brittany O'Keefe",
-      "phoneNumber": "615-305-6205",
+      "name": "David Bare",
+      "phoneNumber": "615-269-4632",
       "jobTitle": "Manager",
-      "hireDate": "04/06/18"
+      "hireDate": "01/23/20",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Jennifer Roberts",
-      "phoneNumber": "615-603-6720",
+      "name": "Sarah Piper",
+      "phoneNumber": "615-842-8585",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "01/23/20"
+      "hireDate": "02/03/20",
+      "id": 3
     },
     {
-      "name": "David Jones",
-      "phoneNumber": "615-426-5368",
+      "name": "Rachel King",
+      "phoneNumber": "615-942-2584",
       "jobTitle": "Assistant Manager",
-      "hireDate": "10/12/19",
+      "hireDate": "06/14/19",
       "id": 4
     }
   ],

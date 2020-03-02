@@ -7,10 +7,12 @@ const OwnerDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
-        setIsLoading(true);
-        OwnerManager.delete(props.ownerId).then(() =>
-            props.history.push("/owners")
-        );
+        if (window.confirm("Are you sure you want to remove this owner?")) {
+            setIsLoading(true);
+            OwnerManager.delete(props.ownerId).then(() =>
+                props.history.push("/owners")
+            );
+        }
     };
 
     useEffect(() => {
