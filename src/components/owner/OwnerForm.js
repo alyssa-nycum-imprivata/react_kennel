@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import OwnerManager from '../../modules/OwnerManager';
 
 const OwnerForm = props => {
-  const [owner, setOwner] = useState({ name: "", phoneNumber: "" });
+  const [owner, setOwner] = useState({ name: "", phoneNumber: "", email: "", petName: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -13,8 +13,8 @@ const OwnerForm = props => {
 
   const constructNewOwner = evt => {
     evt.preventDefault();
-    if (owner.name === "" || owner.phoneNumber === "") {
-      window.alert("Please input an owner name and phone number");
+    if (owner.name === "" || owner.phoneNumber === "" || owner.email === "" || owner.petName === "") {
+      window.alert("Please fill out all fields");
     } else {
       setIsLoading(true);
       OwnerManager.post(owner)
@@ -34,7 +34,8 @@ const OwnerForm = props => {
               id="name"
               placeholder="Owner name"
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Owner Name</label>
+
             <input
               type="text"
               required
@@ -43,6 +44,25 @@ const OwnerForm = props => {
               placeholder="000-000-0000"
             />
             <label htmlFor="phoneNumber">Phone Number</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="email"
+              placeholder="Email"
+            />
+            <label htmlFor="email">Email</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="petName"
+              placeholder="Pet's Name"
+            />
+            <label htmlFor="petName">Pet's Name</label>
+
           </div>
           <div className="alignRight">
             <button

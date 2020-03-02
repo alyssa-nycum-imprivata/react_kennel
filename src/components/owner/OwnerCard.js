@@ -12,7 +12,7 @@ const OwnerCard = (props) => {
         <h3>
           Name: <span className="card-ownername">{firstLetterCase(props.owner.name)}</span>
         </h3>
-        <p>Phone Number: {firstLetterCase(props.owner.phoneNumber)}</p>
+        <p>Pet's Name: {firstLetterCase(props.owner.petName)}</p>
         <Link to={`/owners/${props.owner.id}`}>
           <button>Details</button>
         </Link>
@@ -20,7 +20,7 @@ const OwnerCard = (props) => {
           onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>Remove</button>
+        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to remove this owner?"))props.deleteOwner(props.owner.id)}}>Remove</button>
       </div>
     </div>
   );

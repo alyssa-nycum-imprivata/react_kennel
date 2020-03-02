@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import OwnerManager from "../../modules/OwnerManager"
 
 const OwnerEditForm = props => {
-  const [owner, setOwner] = useState({ name: "", phoneNumber: "" });
+  const [owner, setOwner] = useState({ name: "", phoneNumber: "", email: "", petName: ""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -13,16 +13,22 @@ const OwnerEditForm = props => {
 
   const updateExistingOwner = evt => {
     evt.preventDefault()
-    setIsLoading(true);
+    if (owner.name === "" || owner.phoneNumber === "" || owner.email === "" || owner.petName === "") {
+        window.alert("Please fill out all fields");
+    } else {
+        setIsLoading(true);
 
-    const editedOwner = {
-      id: props.match.params.ownerId,
-      name: owner.name,
-      phoneNumber: owner.phoneNumber
-    };
-
-    OwnerManager.update(editedOwner)
-      .then(() => props.history.push("/owners"))
+        const editedOwner = {
+          id: props.match.params.ownerId,
+          name: owner.name,
+          phoneNumber: owner.phoneNumber,
+          email: owner.email,
+          petName: owner.petName
+        };
+    
+        OwnerManager.update(editedOwner)
+          .then(() => props.history.push(`/owners/${owner.id}`))
+    }
   }
 
   useEffect(() => {
@@ -57,6 +63,26 @@ const OwnerEditForm = props => {
               value={owner.phoneNumber}
             />
             <label htmlFor="phoneNumber">Phone Number</label>
+
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="email"
+              value={owner.email}
+            />
+            <label htmlFor="email">Email</label>
+
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="petName"
+              value={owner.petName}
+            />
+            <label htmlFor="petName">Pet's Name</label>
+
           </div>
           <div className="alignRight">
             <button

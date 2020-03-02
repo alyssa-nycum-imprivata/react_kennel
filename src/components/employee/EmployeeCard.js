@@ -12,6 +12,7 @@ const EmployeeCard = (props) => {
         <h3>
           Name: <span className="card-employeename">{firstLetterCase(props.employee.name)}</span>
         </h3>
+        <p>Job Title: {firstLetterCase(props.employee.jobTitle)}</p>
         <Link to={`/employees/${props.employee.id}`}>
           <button>Details</button>
         </Link>
@@ -19,7 +20,7 @@ const EmployeeCard = (props) => {
           onClick={() => props.history.push(`/employees/${props.employee.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => props.deleteEmployee(props.employee.id)}>Fire</button>
+        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to fire this employee?"))props.deleteEmployee(props.employee.id)}}>Fire</button>
       </div>
     </div>
   );

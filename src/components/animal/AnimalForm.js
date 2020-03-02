@@ -3,7 +3,7 @@ import AnimalManager from '../../modules/AnimalManager';
 import './AnimalForm.css'
 
 const AnimalForm = props => {
-    const [animal, setAnimal] = useState({ name: "", breed: "" });
+    const [animal, setAnimal] = useState({ name: "", breed: "", gender: "", age: "", weight: "", petOwner: "" });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleFieldChange = evt => {
@@ -16,8 +16,8 @@ const AnimalForm = props => {
     */
     const constructNewAnimal = evt => {
         evt.preventDefault();
-        if (animal.name === "" || animal.breed === "") {
-            window.alert("Please input an animal name and breed");
+        if (animal.name === "" || animal.breed === "" || animal.gender === "" || animal.age === "" || animal.weight === "" || animal.petOwner === "") {
+            window.alert("Please fill out all fields");
         } else {
             setIsLoading(true);
             // Create the animal and redirect user to animal list
@@ -38,7 +38,8 @@ const AnimalForm = props => {
                             id="name"
                             placeholder="Animal name"
                         />
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Animal Name</label>
+                        
                         <input
                             type="text"
                             required
@@ -47,6 +48,42 @@ const AnimalForm = props => {
                             placeholder="Breed"
                         />
                         <label htmlFor="breed">Breed</label>
+                        
+                        <input
+                            type="text"
+                            required
+                            onChange={handleFieldChange}
+                            id="gender"
+                            placeholder="male or female"
+                        />
+                        <label htmlFor="gender">Gender</label>
+                        
+                        <input
+                            type="number"
+                            required
+                            onChange={handleFieldChange}
+                            id="age"
+                            placeholder="age"
+                        />
+                        <label htmlFor="age">Age</label>
+                        
+                        <input
+                            type="number"
+                            required
+                            onChange={handleFieldChange}
+                            id="weight"
+                            placeholder="weight in pounds"
+                        />
+                        <label htmlFor="weight">Weight</label>
+                        
+                        <input
+                            type="text"
+                            required
+                            onChange={handleFieldChange}
+                            id="petOwner"
+                            placeholder="Owner"
+                        />
+                        <label htmlFor="petOwner">Owner</label>
                     </div>
                     <div className="alignRight">
                         <button

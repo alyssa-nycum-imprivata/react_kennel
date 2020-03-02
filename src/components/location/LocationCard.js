@@ -12,6 +12,7 @@ const LocationCard = (props) => {
         <h3>
           Location: <span className="card-locationname">{firstLetterCase(props.kennelLocation.name)}</span>
         </h3>
+        <p>Address: {props.kennelLocation.address}</p>
         <Link to={`/locations/${props.kennelLocation.id}`}>
           <button>Details</button>
         </Link>
@@ -19,7 +20,7 @@ const LocationCard = (props) => {
           onClick={() => props.history.push(`/locations/${props.kennelLocation.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => props.deleteLocation(props.kennelLocation.id)}>Close</button>
+        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to close this location?"))props.deleteLocation(props.kennelLocation.id)}}>Close</button>
       </div>
     </div>
   );
