@@ -7,3 +7,8 @@
   button:disabled:hover {
     background-color: lightgray;
   }
+
+  .animalsInCare {
+    display: flex;
+    justify-content: center;
+  }
