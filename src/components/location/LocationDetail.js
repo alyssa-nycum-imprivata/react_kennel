@@ -34,24 +34,31 @@ const LocationDetail = props => {
         )
     } else {
         return (
-            <div className="card">
-                <div className="card-content">
-                    <picture>
-                        <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
-                    </picture>
-                    <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
-                    <p>Phone Number: {location.phoneNumber}</p>
-                    <p>Address: {location.address}</p>
-                    <p>Hours: {location.hours}</p>
-                    <button type="button"
-                        onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
-                        Edit
+            <>
+                <button type="button"
+                    className="back"
+                    onClick={() => { props.history.push("/locations") }}>
+                    Go Back
+                </button>
+                <div className="card">
+                    <div className="card-content">
+                        <picture>
+                            <img src={require("./nashville-skyline.jpg")} alt="Nashville Skyline" />
+                        </picture>
+                        <h3>Location: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(location.name)}</span></h3>
+                        <p>Phone Number: {location.phoneNumber}</p>
+                        <p>Address: {location.address}</p>
+                        <p>Hours: {location.hours}</p>
+                        <button type="button"
+                            onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
+                            Edit
                     </button>
-                    <button type="button" disabled={isLoading} onClick={handleDelete}>
-                        Close
+                        <button type="button" disabled={isLoading} onClick={handleDelete}>
+                            Close
                     </button>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }

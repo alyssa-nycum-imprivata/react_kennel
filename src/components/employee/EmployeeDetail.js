@@ -34,24 +34,31 @@ const EmployeeDetail = props => {
         )
     } else {
         return (
-            <div className="card">
-                <div className="card-content">
-                    <picture>
-                        <img src={require("./profile-icon.png")} alt="Employee" />
-                    </picture>
-                    <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(employee.name)}</span></h3>
-                    <p>Phone Number: {employee.phoneNumber}</p>
-                    <p>Job Title: {firstLetterCase(employee.jobTitle)}</p>
-                    <p>Hire Date: {employee.hireDate}</p>
-                    <button type="button"
-                        onClick={() => props.history.push(`/employees/${props.employeeId}/edit`)}>
-                        Edit
+            <>
+                <button type="button"
+                    className="back"
+                    onClick={() => { props.history.push("/employees") }}>
+                    Go Back
+                </button>
+                <div className="card">
+                    <div className="card-content">
+                        <picture>
+                            <img src={require("./profile-icon.png")} alt="Employee" />
+                        </picture>
+                        <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(employee.name)}</span></h3>
+                        <p>Phone Number: {employee.phoneNumber}</p>
+                        <p>Job Title: {firstLetterCase(employee.jobTitle)}</p>
+                        <p>Hire Date: {employee.hireDate}</p>
+                        <button type="button"
+                            onClick={() => props.history.push(`/employees/${props.employeeId}/edit`)}>
+                            Edit
                     </button>
-                    <button type="button" disabled={isLoading} onClick={handleDelete}>
-                        Fire
+                        <button type="button" disabled={isLoading} onClick={handleDelete}>
+                            Fire
                     </button>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }
