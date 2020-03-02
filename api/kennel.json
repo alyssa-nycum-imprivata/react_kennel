@@ -80,20 +80,20 @@
       "locationId": 1
     },
     {
+      "id": 2,
       "name": "David Bare",
       "phoneNumber": "615-269-4632",
       "jobTitle": "Manager",
       "hireDate": "01/23/20",
-      "locationId": 2,
-      "id": 2
+      "locationId": 2
     },
     {
+      "id": 4,
       "name": "Rachel King",
       "phoneNumber": "615-942-2584",
       "jobTitle": "Assistant Manager",
       "hireDate": "06/14/19",
-      "locationId": 3,
-      "id": 4
+      "locationId": 3
     },
     {
       "id": 5,

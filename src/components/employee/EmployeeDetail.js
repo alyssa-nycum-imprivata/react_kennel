@@ -70,7 +70,7 @@ const EmployeeDetail = props => {
                     </button>
                     </div>
                 </div>
-                <h1 className="animalsInCare">Currently taking care of:</h1>
+                <h1 className="expandedDetails">Currently taking care of:</h1>
                 <div className="card">
                     {animals.map(animal =>
                         <AnimalCard
