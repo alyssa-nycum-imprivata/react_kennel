@@ -8,7 +8,7 @@
     background-color: lightgray;
   }
 
-  .animalsInCare {
+  .expandedDetails {
     display: flex;
     justify-content: center;
   }

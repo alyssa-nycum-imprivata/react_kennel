@@ -76,13 +76,15 @@
       "name": "Marcus Whitt",
       "phoneNumber": "615-742-4675",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "09/24/19"
+      "hireDate": "09/24/19",
+      "locationId": 1
     },
     {
       "name": "David Bare",
       "phoneNumber": "615-269-4632",
       "jobTitle": "Manager",
       "hireDate": "01/23/20",
+      "locationId": 2,
       "id": 2
     },
     {
@@ -90,6 +92,7 @@
       "phoneNumber": "615-942-2584",
       "jobTitle": "Assistant Manager",
       "hireDate": "06/14/19",
+      "locationId": 3,
       "id": 4
     },
     {
@@ -97,7 +100,8 @@
       "name": "Sarah Piper",
       "phoneNumber": "615-976-4384",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "03/02/20"
+      "hireDate": "03/02/20",
+      "locationId": 4
     }
   ],
   "owners": [
