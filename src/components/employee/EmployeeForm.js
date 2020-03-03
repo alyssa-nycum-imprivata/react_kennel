@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EmployeeManager from '../../modules/EmployeeManager';
+import LocationManager from '../../modules/LocationManager';
 
 const EmployeeForm = props => {
-  const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
+  const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "", locationId: "" });
+  const [locations, setLocations] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -11,17 +13,34 @@ const EmployeeForm = props => {
     setEmployee(stateToChange);
   };
 
+  useEffect(() => {
+    LocationManager.getAll(locations).then(locations => {
+        setLocations(locations);
+        setIsLoading(false);
+    })
+}, []);
+
   const constructNewEmployee = evt => {
     evt.preventDefault();
-    if (employee.name === "" || employee.phoneNumber === "" || employee.jobTitle === "" || employee.hireDate === "") {
+    if (employee.name === "" || employee.phoneNumber === "" || employee.jobTitle === "" || employee.hireDate === "" || employee.locationId === "") {
       window.alert("Please fill out all fields");
     } else {
       setIsLoading(true);
-      EmployeeManager.post(employee)
+
+      const newEmployee = {
+        id: props.match.params.employeeId,
+        name: employee.name,
+        phoneNumber: employee.phoneNumber,
+        jobTitle: employee.jobTitle,
+        hireDate: employee.hireDate,
+        locationId: parseInt(employee.locationId)
+      };
+
+      EmployeeManager.post(newEmployee)
         .then(() => props.history.push("/employees"));
     }
   };
-
+ 
   return (
     <>
       <form>
@@ -62,6 +81,21 @@ const EmployeeForm = props => {
               placeholder="MM/DD/YY"
             />
             <label htmlFor="hireDate">Hire Date</label>
+
+            <select
+              className="form-control"
+              id="locationId"
+              value={employee.locationId}
+              onChange={handleFieldChange}
+            >
+              <option value="" disabled defaultValue>Select Location</option> 
+              {locations.map(location =>
+                <option key={location.id} value={location.id}>
+                  {location.name}
+              </option>
+              )}
+            </select>
+            <label htmlFor="locationId">Assigned Location:</label>
 
           </div>
           <div className="alignRight">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
 import EmployeeManager from '../../modules/EmployeeManager';
 import './AnimalForm.css'
@@ -14,14 +14,19 @@ const AnimalForm = props => {
         setAnimal(stateToChange);
     };
 
-    EmployeeManager.getAll(employees).then(employees => {
-        setEmployees(employees);
-    })
+
+    useEffect(() => {
+        EmployeeManager.getAll(employees).then(employees => {
+            setEmployees(employees);
+            setIsLoading(false);
+        })
+    }, [])
+    
     /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
     */
     const constructNewAnimal = evt => {
         evt.preventDefault();
-        if (animal.name === "" || animal.breed === "" || animal.gender === "" || animal.age === "" || animal.weight === "" || animal.petOwner === "" ) {
+        if (animal.name === "" || animal.breed === "" || animal.gender === "" || animal.age === "" || animal.weight === "" || animal.petOwner === "" || animal.employeeId === "") {
             window.alert("Please fill out all fields");
         } else {
             setIsLoading(true);
@@ -108,7 +113,7 @@ const AnimalForm = props => {
                             value={animal.employeeId}
                             onChange={handleFieldChange}
                         >
-                            <option value="" disabled selected>Select Employee</option> 
+                            <option value="" disabled defaultValue>Select Employee</option> 
                             {employees.map(employee =>
                                 <option key={employee.id} value={employee.id}>
                                     {employee.name}

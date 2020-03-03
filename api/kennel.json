@@ -51,14 +51,14 @@
       "employeeId": 4
     },
     {
+      "id": 6,
       "name": "Pepper",
       "breed": "Mutt",
       "gender": "Female",
       "age": 2,
-      "weight": 30,
+      "weight": 25,
       "petOwner": "Cat Hughes",
-      "employeeId": 1,
-      "id": 6
+      "employeeId": 6
     }
   ],
   "locations": [
@@ -123,6 +123,14 @@
       "jobTitle": "Kennel Attendant",
       "hireDate": "03/02/20",
       "locationId": 4
+    },
+    {
+      "name": "Brittany Jones",
+      "phoneNumber": "615-432-6797",
+      "jobTitle": "Kennel Attendant",
+      "hireDate": "02/16/20",
+      "locationId": 3,
+      "id": 6
     }
   ],
   "owners": [

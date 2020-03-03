@@ -90,7 +90,7 @@ const EmployeeEditForm = props => {
             <select
               className="form-control"
               id="locationId"
-              value={employee.employeeId}
+              value={employee.locationId}
               onChange={handleFieldChange}
             >
               {locations.map(location =>
