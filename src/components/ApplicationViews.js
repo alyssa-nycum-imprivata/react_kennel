@@ -83,7 +83,9 @@ const ApplicationViews = (props) => {
         exact
         path="/locations"
         render={(props) => {
-          return <LocationList {...props} />
+          return <LocationList 
+          hasUser={hasUser} 
+          {...props} />
         }}
       />
       <Route
@@ -98,6 +100,7 @@ const ApplicationViews = (props) => {
         render={(props) => {
           return (
             <LocationDetail locationId={parseInt(props.match.params.locationId)}
+            hasUser={hasUser}
               {...props}
             />
           )

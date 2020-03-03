@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import LocationManager from '../../modules/LocationManager';
 import { firstLetterCase } from '../../modules/helpers';
 import EmployeeCard from '../employee/EmployeeCard';
-import EmployeeManager from '../../modules/EmployeeManager';
 
 const LocationDetail = props => {
     const [location, setLocation] = useState({});
@@ -16,7 +15,7 @@ const LocationDetail = props => {
                 props.history.push("/locations")
             );
         }
-    }; 
+    };
 
     useEffect(() => {
         LocationManager.getWithEmployees(props.match.params.locationId)
@@ -27,7 +26,7 @@ const LocationDetail = props => {
                     address: location.address,
                     hours: location.hours
                 });
-                setEmployees(location.employees)
+                setEmployees(location.employees);
                 setIsLoading(false);
             });
     }, [props.match.params.locationId]);
@@ -55,25 +54,34 @@ const LocationDetail = props => {
                         <p>Phone Number: {location.phoneNumber}</p>
                         <p>Address: {location.address}</p>
                         <p>Hours: {location.hours}</p>
-                        <button type="button"
-                            onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
-                            Edit
-                    </button>
-                        <button type="button" disabled={isLoading} onClick={handleDelete}>
-                            Close
-                    </button>
+                        {props.hasUser
+                            ? <button type="button"
+                                onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
+                                Edit
+                                </button>
+                            : null}
+                        {props.hasUser
+                            ? <button type="button" disabled={isLoading} onClick={handleDelete}>
+                                Close
+                                </button>
+                            : null}
+
                     </div>
                 </div>
-                <h1 className="expandedDetails">Current Employees:</h1>
-                <div className="card">
-                    {employees.map(employee =>
-                        <EmployeeCard
-                            key={employee.id}
-                            employee={employee}
-                            {...props}
-                        />
-                    )}
-                </div>
+                {props.hasUser
+                    ? < h1 className="expandedDetails">Current Employees:</h1>
+                    : null}
+                {props.hasUser
+                    ? <div className="card">
+                        {employees.map(employee =>
+                            <EmployeeCard
+                                key={employee.id}
+                                employee={employee}
+                                {...props}
+                            />
+                        )}
+                    </div>
+                    : null}
             </>
         );
     }
