@@ -22,9 +22,9 @@ const LocationCard = (props) => {
             Edit
             </button>
           : null}
-        {props.hasUser
+        {/* {props.hasUser
           ? <button type="button" onClick={() => { if (window.confirm("Are you sure you want to close this location?")) props.deleteLocation(props.kennelLocation.id) }}>Close</button>
-          : null}
+          : null} */}
       </div>
     </div>
   );

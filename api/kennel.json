@@ -125,12 +125,12 @@
       "locationId": 4
     },
     {
+      "id": 6,
       "name": "Brittany Jones",
-      "phoneNumber": "615-432-6797",
+      "phoneNumber": "615-868-3968",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "02/16/20",
-      "locationId": 3,
-      "id": 6
+      "hireDate": "02/18/20",
+      "locationId": 2
     }
   ],
   "owners": [

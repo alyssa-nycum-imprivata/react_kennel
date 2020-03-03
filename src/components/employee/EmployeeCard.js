@@ -20,7 +20,6 @@ const EmployeeCard = (props) => {
           onClick={() => props.history.push(`/employees/${props.employee.id}/edit`)}>
           Edit
         </button>
-        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to fire this employee?"))props.deleteEmployee(props.employee.id)}}>Fire</button>
       </div>
     </div>
   );

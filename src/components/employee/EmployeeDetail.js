@@ -10,12 +10,16 @@ const EmployeeDetail = props => {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEmployeeDelete = () => {
-        if (window.confirm("Are you sure you want to fire this employee?")) {
-            setIsLoading(true);
-            EmployeeManager.delete(props.employeeId).then(() =>
-                props.history.push("/employees")
-            );
-        }
+        if (animals.length === 0) {
+            if (window.confirm("Are you sure you want to fire this employee?")) {
+                setIsLoading(true);
+                EmployeeManager.delete(props.employeeId).then(() =>
+                    props.history.push("/employees")
+                );
+            }
+        } else {
+            window.alert("Please reassign all animals under this employee's care before firing employee.")
+        } 
     };
 
     const handleAnimalDelete = (animalId) => {
@@ -31,7 +35,8 @@ const EmployeeDetail = props => {
                     name: employee.name,
                     phoneNumber: employee.phoneNumber,
                     jobTitle: employee.jobTitle,
-                    hireDate: employee.hireDate
+                    hireDate: employee.hireDate,
+                    locationId: employee.locationId
                 });
                 setAnimals(employee.animals);
                 setIsLoading(false);
