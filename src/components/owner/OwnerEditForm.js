@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import OwnerManager from "../../modules/OwnerManager"
 
 const OwnerEditForm = props => {
-  const [owner, setOwner] = useState({ name: "", phoneNumber: "", email: "", petName: ""});
+  const [owner, setOwner] = useState({ name: "", phoneNumber: "", email: "", petName: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -14,20 +14,20 @@ const OwnerEditForm = props => {
   const updateExistingOwner = evt => {
     evt.preventDefault()
     if (owner.name === "" || owner.phoneNumber === "" || owner.email === "" || owner.petName === "") {
-        window.alert("Please fill out all fields");
+      window.alert("Please fill out all fields");
     } else {
-        setIsLoading(true);
+      setIsLoading(true);
 
-        const editedOwner = {
-          id: props.match.params.ownerId,
-          name: owner.name,
-          phoneNumber: owner.phoneNumber,
-          email: owner.email,
-          petName: owner.petName
-        };
-    
-        OwnerManager.update(editedOwner)
-          .then(() => props.history.push(`/owners/${owner.id}`))
+      const editedOwner = {
+        id: props.match.params.ownerId,
+        name: owner.name,
+        phoneNumber: owner.phoneNumber,
+        email: owner.email,
+        petName: owner.petName
+      };
+
+      OwnerManager.update(editedOwner)
+        .then(() => props.history.push(`/owners/${owner.id}`))
     }
   }
 
@@ -41,6 +41,11 @@ const OwnerEditForm = props => {
 
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push(`/owners/${owner.id}`) }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">

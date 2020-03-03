@@ -51,6 +51,11 @@ const AnimalEditForm = props => {
 
     return (
         <>
+        <button type="button"
+        className="back"
+        onClick={() => { props.history.push(`/animals/${animal.id}`) }}>
+        Go Back
+        </button>
             <form>
                 <fieldset>
                     <div className="formgrid">

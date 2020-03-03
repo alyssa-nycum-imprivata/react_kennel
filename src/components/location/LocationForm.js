@@ -24,6 +24,11 @@ const LocationForm = props => {
 
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push("/locations") }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">

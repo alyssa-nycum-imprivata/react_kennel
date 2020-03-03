@@ -14,20 +14,20 @@ const LocationEditForm = props => {
   const updateExistingLocation = evt => {
     evt.preventDefault()
     if (location.name === "" || location.phoneNumber === "" || location.address === "" || location.hours === "") {
-        window.alert("Please fill out all fields");
+      window.alert("Please fill out all fields");
     } else {
-        setIsLoading(true);
+      setIsLoading(true);
 
-        const editedLocation = {
-          id: props.match.params.locationId,
-          name: location.name,
-          phoneNumber: location.phoneNumber,
-          address: location.address,
-          hours: location.hours
-        };
-    
-        LocationManager.update(editedLocation)
-          .then(() => props.history.push(`/locations/${location.id}`))
+      const editedLocation = {
+        id: props.match.params.locationId,
+        name: location.name,
+        phoneNumber: location.phoneNumber,
+        address: location.address,
+        hours: location.hours
+      };
+
+      LocationManager.update(editedLocation)
+        .then(() => props.history.push(`/locations/${location.id}`))
     }
   }
 
@@ -41,6 +41,11 @@ const LocationEditForm = props => {
 
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push(`/locations/${location.id}`) }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">

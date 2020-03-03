@@ -21,7 +21,7 @@ const AnimalForm = props => {
             setIsLoading(false);
         })
     }, [])
-    
+
     /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
     */
     const constructNewAnimal = evt => {
@@ -50,6 +50,11 @@ const AnimalForm = props => {
 
     return (
         <>
+            <button type="button"
+                className="back"
+                onClick={() => { props.history.push("/animals") }}>
+                Go Back
+            </button>
             <form>
                 <fieldset>
                     <div className="formgrid">
@@ -113,7 +118,7 @@ const AnimalForm = props => {
                             value={animal.employeeId}
                             onChange={handleFieldChange}
                         >
-                            <option value="" disabled defaultValue>Select Employee</option> 
+                            <option value="" disabled defaultValue>Select Employee</option>
                             {employees.map(employee =>
                                 <option key={employee.id} value={employee.id}>
                                     {employee.name}

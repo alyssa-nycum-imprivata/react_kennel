@@ -15,10 +15,10 @@ const EmployeeForm = props => {
 
   useEffect(() => {
     LocationManager.getAll(locations).then(locations => {
-        setLocations(locations);
-        setIsLoading(false);
+      setLocations(locations);
+      setIsLoading(false);
     })
-}, []);
+  }, []);
 
   const constructNewEmployee = evt => {
     evt.preventDefault();
@@ -40,9 +40,14 @@ const EmployeeForm = props => {
         .then(() => props.history.push("/employees"));
     }
   };
- 
+
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push("/employees") }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">
@@ -88,11 +93,11 @@ const EmployeeForm = props => {
               value={employee.locationId}
               onChange={handleFieldChange}
             >
-              <option value="" disabled defaultValue>Select Location</option> 
+              <option value="" disabled defaultValue>Select Location</option>
               {locations.map(location =>
                 <option key={location.id} value={location.id}>
                   {location.name}
-              </option>
+                </option>
               )}
             </select>
             <label htmlFor="locationId">Assigned Location:</label>
