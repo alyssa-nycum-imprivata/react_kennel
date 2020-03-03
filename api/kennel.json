@@ -31,13 +31,14 @@
       "employeeId": 1
     },
     {
+      "id": 4,
       "name": "Buffy",
       "breed": "Golden Retriever",
       "gender": "Female",
       "age": "14",
       "weight": "55",
       "petOwner": "Alyssa Nycum",
-      "id": 4
+      "employeeId": 5
     }
   ],
   "locations": [
@@ -98,7 +99,7 @@
     {
       "id": 5,
       "name": "Sarah Piper",
-      "phoneNumber": "615-976-4384",
+      "phoneNumber": "615-942-7532",
       "jobTitle": "Kennel Attendant",
       "hireDate": "03/02/20",
       "locationId": 4

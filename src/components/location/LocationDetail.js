@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import LocationManager from '../../modules/LocationManager';
 import { firstLetterCase } from '../../modules/helpers';
 import EmployeeCard from '../employee/EmployeeCard';
+import EmployeeManager from '../../modules/EmployeeManager';
 
 const LocationDetail = props => {
     const [location, setLocation] = useState({});
     const [employees, setEmployees] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const handleDelete = () => {
+    const handleLocationDelete = () => {
         if (window.confirm("Are you sure you want to close this location?")) {
             setIsLoading(true);
             LocationManager.delete(props.locationId).then(() =>
@@ -16,6 +17,12 @@ const LocationDetail = props => {
             );
         }
     };
+
+    const handleEmployeeDelete = (employeeId) => {
+        EmployeeManager.delete(employeeId).then(() =>
+            props.history.push("/employees")
+        );
+}
 
     useEffect(() => {
         LocationManager.getWithEmployees(props.match.params.locationId)
@@ -61,7 +68,7 @@ const LocationDetail = props => {
                                 </button>
                             : null}
                         {props.hasUser
-                            ? <button type="button" disabled={isLoading} onClick={handleDelete}>
+                            ? <button type="button" disabled={isLoading} onClick={handleLocationDelete}>
                                 Close
                                 </button>
                             : null}
@@ -77,6 +84,7 @@ const LocationDetail = props => {
                             <EmployeeCard
                                 key={employee.id}
                                 employee={employee}
+                                deleteEmployee={handleEmployeeDelete}
                                 {...props}
                             />
                         )}
