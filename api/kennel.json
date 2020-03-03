@@ -6,7 +6,7 @@
       "breed": "Poodle",
       "gender": "Female",
       "age": 9,
-      "weight": 25,
+      "weight": 30,
       "petOwner": "Brenda Smith",
       "employeeId": 4
     },
@@ -73,7 +73,7 @@
       "id": 2,
       "name": "East Nashville",
       "phoneNumber": "615-395-4092",
-      "address": "3983 Woodland Street",
+      "address": "901 Woodland Street",
       "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday"
     },
     {
@@ -97,7 +97,7 @@
       "name": "Marcus Whitt",
       "phoneNumber": "615-742-4675",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "09/24/19",
+      "hireDate": "09/22/19",
       "locationId": 1
     },
     {
@@ -151,7 +151,7 @@
     {
       "id": 3,
       "name": "Derek Boyd",
-      "phoneNumber": "615-449-2047",
+      "phoneNumber": "615-449-2048",
       "email": "derek.boyd@gmail.com",
       "petName": "Esme"
     },

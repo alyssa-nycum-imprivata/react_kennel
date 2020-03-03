@@ -12,11 +12,6 @@ const AnimalList = (props) => {
     });
   };
 
-  const deleteAnimal = id => {
-    AnimalManager.delete(id)
-      .then(() => AnimalManager.getAll().then(setAnimals));
-  };
-
   useEffect(() => {
     getAnimals();
   }, []);
@@ -35,7 +30,6 @@ const AnimalList = (props) => {
           <AnimalCard
             key={animal.id}
             animal={animal}
-            deleteAnimal={deleteAnimal}
             {...props}
           />
         )}

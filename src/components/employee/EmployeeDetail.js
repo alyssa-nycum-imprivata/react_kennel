@@ -18,7 +18,7 @@ const EmployeeDetail = props => {
                 );
             }
         } else {
-            window.alert("Please reassign all animals under this employee's care before firing employee.")
+            window.alert("Please reassign all animals under this employee's care before firing this employee.")
         } 
     };
 
