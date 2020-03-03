@@ -5,8 +5,8 @@
       "name": "Doodles",
       "breed": "Poodle",
       "gender": "Female",
-      "age": "9",
-      "weight": "25",
+      "age": 9,
+      "weight": 25,
       "petOwner": "Brenda Smith",
       "employeeId": 4
     },
@@ -15,8 +15,8 @@
       "name": "Decker",
       "breed": "Husky",
       "gender": "Male",
-      "age": "2",
-      "weight": "40",
+      "age": 2,
+      "weight": 40,
       "petOwner": "Kevin Jones",
       "employeeId": 2
     },
@@ -25,8 +25,8 @@
       "name": "Esme",
       "breed": "Pitbull",
       "gender": "Female",
-      "age": "6",
-      "weight": "55",
+      "age": 6,
+      "weight": 55,
       "petOwner": "Derek Boyd",
       "employeeId": 1
     },
@@ -35,10 +35,30 @@
       "name": "Buffy",
       "breed": "Golden Retriever",
       "gender": "Female",
-      "age": "14",
-      "weight": "55",
+      "age": 14,
+      "weight": 55,
       "petOwner": "Alyssa Nycum",
       "employeeId": 5
+    },
+    {
+      "id": 5,
+      "name": "Kaluha",
+      "breed": "Chocolate Lab",
+      "gender": "Female",
+      "age": 12,
+      "weight": 75,
+      "petOwner": "Barbara England",
+      "employeeId": 4
+    },
+    {
+      "name": "Pepper",
+      "breed": "Mutt",
+      "gender": "Female",
+      "age": 2,
+      "weight": 30,
+      "petOwner": "Cat Hughes",
+      "employeeId": 1,
+      "id": 6
     }
   ],
   "locations": [

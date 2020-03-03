@@ -5,7 +5,7 @@ import EmployeeManager from "../../modules/EmployeeManager";
 
 
 const AnimalEditForm = props => {
-    const [animal, setAnimal] = useState({ name: "", breed: "", gender: "", age: "", weight: "", petOwner: "" });
+    const [animal, setAnimal] = useState({ name: "", breed: "", gender: "", age: "", weight: "", petOwner: "", employeeId: "" });
     const [employees, setEmployees] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -27,8 +27,8 @@ const AnimalEditForm = props => {
                 name: animal.name,
                 breed: animal.breed,
                 gender: animal.gender,
-                age: animal.age,
-                weight: animal.weight,
+                age: parseInt(animal.age),
+                weight: parseInt(animal.weight),
                 petOwner: animal.petOwner,
                 employeeId: parseInt(animal.employeeId)
             };
@@ -122,7 +122,7 @@ const AnimalEditForm = props => {
                                 </option>
                             )}
                         </select>
-                        <label htmlFor="employeeId">Cared for by:</label>
+                        <label htmlFor="employeeId">Assigned Employee</label>
 
                     </div>
                     <div className="alignRight">
