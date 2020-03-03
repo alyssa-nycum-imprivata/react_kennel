@@ -12,11 +12,6 @@ const LocationList = (props) => {
     });
   };
 
-  const deleteLocation = id => {
-    LocationManager.delete(id)
-      .then(() => LocationManager.getAll().then(setLocations));
-  };
-
   useEffect(() => {
     getLocations();
   }, []);
@@ -35,7 +30,6 @@ const LocationList = (props) => {
           <LocationCard
             key={location.id}
             kennelLocation={location}
-            deleteLocation={deleteLocation}
             {...props}
           />
         )}

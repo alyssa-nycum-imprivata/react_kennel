@@ -16,11 +16,6 @@ const OwnerCard = (props) => {
         <Link to={`/owners/${props.owner.id}`}>
           <button>Details</button>
         </Link>
-        <button type="button"
-          onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}>
-          Edit
-        </button>
-        <button type="button" onClick={() => { if (window.confirm("Are you sure you want to remove this owner?"))props.deleteOwner(props.owner.id)}}>Remove</button>
       </div>
     </div>
   );

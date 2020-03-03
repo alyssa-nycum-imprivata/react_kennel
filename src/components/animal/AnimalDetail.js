@@ -22,9 +22,10 @@ const AnimalDetail = props => {
                 name: animal.name,
                 breed: animal.breed,
                 gender: animal.gender,
-                age: animal.age,
-                weight: animal.weight,
-                petOwner: animal.petOwner
+                age: parseInt(animal.age),
+                weight: parseInt(animal.weight),
+                petOwner: animal.petOwner,
+                employeeId: parseInt(animal.employeeId)
             });
             setIsLoading(false);
         });

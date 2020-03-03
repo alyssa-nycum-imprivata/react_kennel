@@ -9,14 +9,25 @@ const LocationDetail = props => {
     const [employees, setEmployees] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const handleDelete = () => {
-        if (window.confirm("Are you sure you want to close this location?")) {
-            setIsLoading(true);
-            LocationManager.delete(props.locationId).then(() =>
-                props.history.push("/locations")
-            );
+    const handleLocationDelete = () => {
+        if (employees.length === 0) {
+            if (window.confirm("Are you sure you want to close this location?")) {
+                setIsLoading(true);
+                LocationManager.delete(props.locationId).then(() =>
+                    props.history.push("/locations")
+                );
+            }
+        } else {
+            window.alert("Please reassign all employees working at this location before closing the location.")
         }
-    }; 
+        
+    };
+
+    const handleEmployeeDelete = (employeeId) => {
+        EmployeeManager.delete(employeeId).then(() =>
+            props.history.push("/employees")
+        );
+}
 
     useEffect(() => {
         LocationManager.getWithEmployees(props.match.params.locationId)
@@ -27,7 +38,7 @@ const LocationDetail = props => {
                     address: location.address,
                     hours: location.hours
                 });
-                setEmployees(location.employees)
+                setEmployees(location.employees);
                 setIsLoading(false);
             });
     }, [props.match.params.locationId]);
@@ -55,25 +66,35 @@ const LocationDetail = props => {
                         <p>Phone Number: {location.phoneNumber}</p>
                         <p>Address: {location.address}</p>
                         <p>Hours: {location.hours}</p>
-                        <button type="button"
-                            onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
-                            Edit
-                    </button>
-                        <button type="button" disabled={isLoading} onClick={handleDelete}>
-                            Close
-                    </button>
+                        {props.hasUser
+                            ? <button type="button"
+                                onClick={() => props.history.push(`/locations/${props.locationId}/edit`)}>
+                                Edit
+                                </button>
+                            : null}
+                        {props.hasUser
+                            ? <button type="button" disabled={isLoading} onClick={handleLocationDelete}>
+                                Close
+                                </button>
+                            : null}
+
                     </div>
                 </div>
-                <h1 className="expandedDetails">Current Employees:</h1>
-                <div className="card">
-                    {employees.map(employee =>
-                        <EmployeeCard
-                            key={employee.id}
-                            employee={employee}
-                            {...props}
-                        />
-                    )}
-                </div>
+                {props.hasUser
+                    ? < h1 className="expandedDetails">Current Employees:</h1>
+                    : null}
+                {props.hasUser
+                    ? <div className="card">
+                        {employees.map(employee =>
+                            <EmployeeCard
+                                key={employee.id}
+                                employee={employee}
+                                deleteEmployee={handleEmployeeDelete}
+                                {...props}
+                            />
+                        )}
+                    </div>
+                    : null}
             </>
         );
     }

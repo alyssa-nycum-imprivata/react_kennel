@@ -24,6 +24,11 @@ const OwnerForm = props => {
 
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push("/owners") }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">

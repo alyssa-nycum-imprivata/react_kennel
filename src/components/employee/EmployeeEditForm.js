@@ -47,6 +47,11 @@ const EmployeeEditForm = props => {
 
   return (
     <>
+      <button type="button"
+        className="back"
+        onClick={() => { props.history.push(`/employees/${employee.id}`) }}>
+        Go Back
+      </button>
       <form>
         <fieldset>
           <div className="formgrid">
@@ -90,7 +95,7 @@ const EmployeeEditForm = props => {
             <select
               className="form-control"
               id="locationId"
-              value={employee.employeeId}
+              value={employee.locationId}
               onChange={handleFieldChange}
             >
               {locations.map(location =>

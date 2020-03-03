@@ -12,11 +12,6 @@ const OwnerList = (props) => {
     });
   };
 
-  const deleteOwner = id => {
-    OwnerManager.delete(id)
-      .then(() => OwnerManager.getAll().then(setOwners));
-  };
-
   useEffect(() => {
     getOwners();
   }, []);
@@ -35,7 +30,6 @@ const OwnerList = (props) => {
           <OwnerCard
             key={owner.id}
             owner={owner}
-            deleteOwner={deleteOwner}
             {...props}
           />
         )}

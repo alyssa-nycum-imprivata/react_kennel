@@ -5,8 +5,8 @@
       "name": "Doodles",
       "breed": "Poodle",
       "gender": "Female",
-      "age": "9",
-      "weight": "25",
+      "age": 9,
+      "weight": 30,
       "petOwner": "Brenda Smith",
       "employeeId": 4
     },
@@ -15,8 +15,8 @@
       "name": "Decker",
       "breed": "Husky",
       "gender": "Male",
-      "age": "2",
-      "weight": "40",
+      "age": 2,
+      "weight": 40,
       "petOwner": "Kevin Jones",
       "employeeId": 2
     },
@@ -25,19 +25,50 @@
       "name": "Esme",
       "breed": "Pitbull",
       "gender": "Female",
-      "age": "6",
-      "weight": "55",
+      "age": 6,
+      "weight": 55,
       "petOwner": "Derek Boyd",
       "employeeId": 1
     },
     {
+      "id": 4,
       "name": "Buffy",
       "breed": "Golden Retriever",
       "gender": "Female",
-      "age": "14",
-      "weight": "55",
+      "age": 14,
+      "weight": 55,
       "petOwner": "Alyssa Nycum",
-      "id": 4
+      "employeeId": 5
+    },
+    {
+      "id": 5,
+      "name": "Kaluha",
+      "breed": "Chocolate Lab",
+      "gender": "Female",
+      "age": 12,
+      "weight": 75,
+      "petOwner": "Barbara England",
+      "employeeId": 4
+    },
+    {
+      "id": 6,
+      "name": "Pepper",
+      "breed": "Mutt",
+      "gender": "Female",
+      "age": 2,
+      "weight": 25,
+      "petOwner": "Cat Hughes",
+      "employeeId": 6
+    },
+    {
+      "name": "Lady",
+      "breed": "Dalmation",
+      "gender": "Female",
+      "age": 4,
+      "weight": 45,
+      "petOwner": "Kate Hackett",
+      "employeeId": 2,
+      "id": 7
     }
   ],
   "locations": [
@@ -52,7 +83,7 @@
       "id": 2,
       "name": "East Nashville",
       "phoneNumber": "615-395-4092",
-      "address": "3983 Woodland Street",
+      "address": "901 Woodland Street",
       "hours": "7am-7pm Monday-Friday, 9am-5pm Saturday, 9am-12pm Sunday"
     },
     {
@@ -76,7 +107,7 @@
       "name": "Marcus Whitt",
       "phoneNumber": "615-742-4675",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "09/24/19",
+      "hireDate": "09/22/19",
       "locationId": 1
     },
     {
@@ -98,10 +129,18 @@
     {
       "id": 5,
       "name": "Sarah Piper",
-      "phoneNumber": "615-976-4384",
+      "phoneNumber": "615-942-7532",
       "jobTitle": "Kennel Attendant",
       "hireDate": "03/02/20",
       "locationId": 4
+    },
+    {
+      "id": 6,
+      "name": "Brittany Jones",
+      "phoneNumber": "615-868-3968",
+      "jobTitle": "Kennel Attendant",
+      "hireDate": "02/18/20",
+      "locationId": 2
     }
   ],
   "owners": [
@@ -127,11 +166,11 @@
       "petName": "Esme"
     },
     {
+      "id": 4,
       "name": "Alyssa Nycum",
       "phoneNumber": "615-258-5743",
       "email": "alyssa.nycum@gmail.com",
-      "petName": "Buffy",
-      "id": 4
+      "petName": "Buffy"
     }
   ]
 }
