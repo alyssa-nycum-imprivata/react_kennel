@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import EmployeeManager from '../../modules/EmployeeManager';
 import { firstLetterCase } from '../../modules/helpers';
+import AnimalCard from '../animal/AnimalCard';
+import AnimalManager from '../../modules/AnimalManager';
 
 const EmployeeDetail = props => {
-    const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
+    const [employee, setEmployee] = useState({});
+    const [animals, setAnimals] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
-    const handleDelete = () => {
+    const handleEmployeeDelete = () => {
         if (window.confirm("Are you sure you want to fire this employee?")) {
             setIsLoading(true);
             EmployeeManager.delete(props.employeeId).then(() =>
@@ -15,8 +18,14 @@ const EmployeeDetail = props => {
         }
     };
 
+    const handleAnimalDelete = (animalId) => {
+            AnimalManager.delete(animalId).then(() =>
+                props.history.push("/animals")
+            );
+    }
+
     useEffect(() => {
-        EmployeeManager.get(props.employeeId)
+        EmployeeManager.getWithAnimals(props.match.params.employeeId)
             .then(employee => {
                 setEmployee({
                     name: employee.name,
@@ -24,9 +33,10 @@ const EmployeeDetail = props => {
                     jobTitle: employee.jobTitle,
                     hireDate: employee.hireDate
                 });
+                setAnimals(employee.animals);
                 setIsLoading(false);
             });
-    }, [props.employeeId]);
+    }, [props.match.params.employeeId]);
 
     if (employee.name === undefined) {
         return (
@@ -55,10 +65,21 @@ const EmployeeDetail = props => {
                             onClick={() => props.history.push(`/employees/${props.employeeId}/edit`)}>
                             Edit
                     </button>
-                        <button type="button" disabled={isLoading} onClick={handleDelete}>
+                        <button type="button" disabled={isLoading} onClick={handleEmployeeDelete}>
                             Fire
                     </button>
                     </div>
+                </div>
+                <h1 className="expandedDetails">Currently taking care of:</h1>
+                <div className="card">
+                    {animals.map(animal =>
+                        <AnimalCard
+                            key={animal.id}
+                            animal={animal}
+                            deleteAnimal={handleAnimalDelete}
+                            {...props}
+                        />
+                    )}
                 </div>
             </>
         );

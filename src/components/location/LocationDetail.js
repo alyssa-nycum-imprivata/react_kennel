@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import LocationManager from '../../modules/LocationManager';
 import { firstLetterCase } from '../../modules/helpers';
+import EmployeeCard from '../employee/EmployeeCard';
+import EmployeeManager from '../../modules/EmployeeManager';
 
 const LocationDetail = props => {
-    const [location, setLocation] = useState({ name: "", phoneNumber: "", address: "", hours: "" });
+    const [location, setLocation] = useState({});
+    const [employees, setEmployees] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleDelete = () => {
@@ -13,10 +16,10 @@ const LocationDetail = props => {
                 props.history.push("/locations")
             );
         }
-    };
+    }; 
 
     useEffect(() => {
-        LocationManager.get(props.locationId)
+        LocationManager.getWithEmployees(props.match.params.locationId)
             .then(location => {
                 setLocation({
                     name: location.name,
@@ -24,9 +27,10 @@ const LocationDetail = props => {
                     address: location.address,
                     hours: location.hours
                 });
+                setEmployees(location.employees)
                 setIsLoading(false);
             });
-    }, [props.locationId]);
+    }, [props.match.params.locationId]);
 
     if (location.name === undefined) {
         return (
@@ -59,6 +63,16 @@ const LocationDetail = props => {
                             Close
                     </button>
                     </div>
+                </div>
+                <h1 className="expandedDetails">Current Employees:</h1>
+                <div className="card">
+                    {employees.map(employee =>
+                        <EmployeeCard
+                            key={employee.id}
+                            employee={employee}
+                            {...props}
+                        />
+                    )}
                 </div>
             </>
         );

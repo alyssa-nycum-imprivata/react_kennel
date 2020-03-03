@@ -7,3 +7,8 @@
   button:disabled:hover {
     background-color: lightgray;
   }
+
+  .expandedDetails {
+    display: flex;
+    justify-content: center;
+  }

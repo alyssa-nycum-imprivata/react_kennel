@@ -59,3 +59,13 @@ fieldset input, fieldset button, fieldset select {
 fieldset .alignRight {
     text-align: right;
 }
+
+#employeeId {
+    margin-bottom: 5px;
+    height: 25px;
+}
+
+#locationId {
+    margin-bottom: 5px;
+    height: 25px;
+}

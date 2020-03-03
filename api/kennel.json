@@ -7,7 +7,8 @@
       "gender": "Female",
       "age": "9",
       "weight": "25",
-      "petOwner": "Brenda Smith"
+      "petOwner": "Brenda Smith",
+      "employeeId": 4
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "gender": "Male",
       "age": "2",
       "weight": "40",
-      "petOwner": "Kevin Jones"
+      "petOwner": "Kevin Jones",
+      "employeeId": 2
     },
     {
       "id": 3,
@@ -25,16 +27,17 @@
       "gender": "Female",
       "age": "6",
       "weight": "55",
-      "petOwner": "Derek Boyd"
+      "petOwner": "Derek Boyd",
+      "employeeId": 1
     },
     {
-      "id": 4,
       "name": "Buffy",
       "breed": "Golden Retriever",
       "gender": "Female",
       "age": "14",
-      "weight": "50",
-      "petOwner": "Alyssa Nycum"
+      "weight": "55",
+      "petOwner": "Alyssa Nycum",
+      "id": 4
     }
   ],
   "locations": [
@@ -73,28 +76,32 @@
       "name": "Marcus Whitt",
       "phoneNumber": "615-742-4675",
       "jobTitle": "Kennel Attendant",
-      "hireDate": "09/24/19"
+      "hireDate": "09/24/19",
+      "locationId": 1
     },
     {
+      "id": 2,
       "name": "David Bare",
       "phoneNumber": "615-269-4632",
       "jobTitle": "Manager",
       "hireDate": "01/23/20",
-      "id": 2
+      "locationId": 2
     },
     {
-      "name": "Sarah Piper",
-      "phoneNumber": "615-842-8585",
-      "jobTitle": "Kennel Attendant",
-      "hireDate": "02/03/20",
-      "id": 3
-    },
-    {
+      "id": 4,
       "name": "Rachel King",
       "phoneNumber": "615-942-2584",
       "jobTitle": "Assistant Manager",
       "hireDate": "06/14/19",
-      "id": 4
+      "locationId": 3
+    },
+    {
+      "id": 5,
+      "name": "Sarah Piper",
+      "phoneNumber": "615-976-4384",
+      "jobTitle": "Kennel Attendant",
+      "hireDate": "03/02/20",
+      "locationId": 4
     }
   ],
   "owners": [

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
 import EmployeeManager from "../../modules/EmployeeManager"
+import LocationManager from "../../modules/LocationManager"
 
 const EmployeeEditForm = props => {
   const [employee, setEmployee] = useState({ name: "", phoneNumber: "", jobTitle: "", hireDate: "" });
+  const [locations, setLocations] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -13,21 +15,22 @@ const EmployeeEditForm = props => {
 
   const updateExistingEmployee = evt => {
     evt.preventDefault()
-    if (employee.name === "" || employee.phoneNumber === "" || employee.jobTitle === "" || employee.hireDate === "") {
-        window.alert("Please fill out all fields"); 
+    if (employee.name === "" || employee.phoneNumber === "" || employee.jobTitle === "" || employee.hireDate === "" || employee.locationId === "") {
+      window.alert("Please fill out all fields");
     } else {
-        setIsLoading(true);
+      setIsLoading(true);
 
-        const editedEmployee = {
-          id: props.match.params.employeeId,
-          name: employee.name,
-          phoneNumber: employee.phoneNumber,
-          jobTitle: employee.jobTitle,
-          hireDate: employee.hireDate
-        };
-    
-        EmployeeManager.update(editedEmployee)
-          .then(() => props.history.push(`/employees/${employee.id}`))
+      const editedEmployee = {
+        id: props.match.params.employeeId,
+        name: employee.name,
+        phoneNumber: employee.phoneNumber,
+        jobTitle: employee.jobTitle,
+        hireDate: employee.hireDate,
+        locationId: parseInt(employee.locationId)
+      };
+
+      EmployeeManager.update(editedEmployee)
+        .then(() => props.history.push(`/employees/${employee.id}`))
     }
   }
 
@@ -35,8 +38,11 @@ const EmployeeEditForm = props => {
     EmployeeManager.get(props.match.params.employeeId)
       .then(employee => {
         setEmployee(employee);
-        setIsLoading(false);
-      });
+      })
+    LocationManager.getAll(locations).then(locations => {
+      setLocations(locations);
+      setIsLoading(false);
+    })
   }, []);
 
   return (
@@ -80,6 +86,20 @@ const EmployeeEditForm = props => {
               value={employee.hireDate}
             />
             <label htmlFor="hireDate">Hire Date</label>
+
+            <select
+              className="form-control"
+              id="locationId"
+              value={employee.employeeId}
+              onChange={handleFieldChange}
+            >
+              {locations.map(location =>
+                <option key={location.id} value={location.id}>
+                  {location.name}
+                </option>
+              )}
+            </select>
+            <label htmlFor="locationId">Assigned Location:</label>
 
           </div>
           <div className="alignRight">
